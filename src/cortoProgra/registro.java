@@ -5,6 +5,10 @@
  */
 package cortoProgra;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author User
@@ -16,6 +20,13 @@ public class registro extends javax.swing.JFrame {
      */
     public registro() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setTitle("sistema de registro");
+       
+        ImageIcon image=new ImageIcon("src/imagenes/fondo1.jpg");
+        Icon icono=new ImageIcon(image.getImage().getScaledInstance(jfondo.getWidth(),jfondo.getHeight(), Image.SCALE_DEFAULT));
+        jfondo.setIcon(icono);
+        this.repaint();
     }
 
     /**
@@ -39,9 +50,11 @@ public class registro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         lstEstudiantes = new javax.swing.JList<>();
         lblResultado = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         jfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 120, -1));
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 120, 30));
@@ -71,10 +84,22 @@ public class registro extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 320, 230));
         getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 310, 30));
-        getContentPane().add(jfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 370));
+
+        btnSalir.setText("salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
+        getContentPane().add(jfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,6 +138,7 @@ public class registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccion;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel japellido;
     private javax.swing.JLabel jfondo;
